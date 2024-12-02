@@ -47,7 +47,8 @@ public class LoginController {
                 .thenAccept(response -> {
                     System.out.println(response);
                     String token = parseToken(response);
-                    saveToken(token);
+                    String role = parseRole(response);
+                    saveTokenAndRole(token, role);
                     Platform.runLater(() -> {
                         Alert alert = new Alert(AlertType.INFORMATION);
                         alert.setTitle("Login");
@@ -75,9 +76,16 @@ public class LoginController {
         return parts[0].trim();
     }
 
-    private void saveToken(String token) {
+    private String parseRole(String response) {
+        // Split the response by comma and return the third part as the role
+        String[] parts = response.split(",");
+        return parts[2].trim();
+    }
+
+    private void saveTokenAndRole(String token, String role) {
         try {
-            Files.writeString(Paths.get("token.txt"), token, StandardCharsets.UTF_8);
+            String info = token + "," + role;
+            Files.writeString(Paths.get("info.txt"), info, StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         }

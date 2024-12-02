@@ -8,17 +8,22 @@
 <ScrollPane fx:id="bookScrollPane" xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.registry.akashic.akashicjavafx.controller.AkashicController"
             stylesheets="@../css/button.css">
-    <Button fx:id="loginButton" layoutX="159.0" layoutY="377.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" styleClass="marrom" text="Entrar" textAlignment="CENTER" textFill="WHITE" onAction="#handleLogin">
+    <Button fx:id="loginButton" layoutX="159.0" layoutY="377.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Entrar" textAlignment="CENTER" textFill="WHITE" onAction="#handleLogin">
         <cursor>
             <Cursor fx:constant="HAND" />
         </cursor>
     </Button>
-    <Button fx:id="registerButton" layoutX="159.0" layoutY="407.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" styleClass="marrom" text="Registrar" textAlignment="CENTER" textFill="WHITE" onAction="#handleRegister">
+    <Button fx:id="registerButton" layoutX="159.0" layoutY="407.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Registrar" textAlignment="CENTER" textFill="WHITE" onAction="#handleRegister">
         <cursor>
             <Cursor fx:constant="HAND" />
         </cursor>
     </Button>
-    <Button fx:id="logoutButton" layoutX="159.0" layoutY="437.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" styleClass="marrom" text="Logout" textAlignment="CENTER" textFill="WHITE" onAction="#handleLogout">
+    <Button fx:id="profileButton" layoutX="159.0" layoutY="467.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" stylesheets="@../css/button.css" text="Perfil" textAlignment="CENTER" textFill="WHITE" onAction="#handleProfile">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Button fx:id="logoutButton" layoutX="159.0" layoutY="437.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Logout" textAlignment="CENTER" textFill="WHITE" onAction="#handleLogout">
         <cursor>
             <Cursor fx:constant="HAND" />
         </cursor>

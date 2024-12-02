@@ -1,6 +1,7 @@
 // AkashicController.java
 package org.registry.akashic.akashicjavafx.controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -19,6 +20,10 @@ import org.registry.akashic.akashicjavafx.response.Book;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Base64;
@@ -35,6 +40,8 @@ public class AkashicController {
     private Button registerButton;
     @FXML
     private Button logoutButton;
+    @FXML
+    private Button profileButton;
 
     private boolean isLoggedIn = false;
 
@@ -48,7 +55,8 @@ public class AkashicController {
 
     private void checkToken() {
         try {
-            String token = Files.readString(Paths.get("token.txt"));
+            String info = Files.readString(Paths.get("info.txt"));
+            String token = info.split(",")[0];
             if (!token.isEmpty()) {
                 setLoggedIn(true);
             }
@@ -132,7 +140,7 @@ public class AkashicController {
     @FXML
     private void handleLogout() {
         try {
-            Files.deleteIfExists(Paths.get("token.txt"));
+            Files.deleteIfExists(Paths.get("info.txt"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -151,6 +159,9 @@ public class AkashicController {
             if (!bookFlowPane.getChildren().contains(logoutButton)) {
                 bookFlowPane.getChildren().add(logoutButton);
             }
+            if (!bookFlowPane.getChildren().contains(profileButton)) {
+                bookFlowPane.getChildren().add(profileButton);
+            }
         } else {
             if (!bookFlowPane.getChildren().contains(loginButton)) {
                 bookFlowPane.getChildren().add(loginButton);
@@ -159,6 +170,42 @@ public class AkashicController {
                 bookFlowPane.getChildren().add(registerButton);
             }
             bookFlowPane.getChildren().remove(logoutButton);
+            bookFlowPane.getChildren().remove(profileButton);
+        }
+    }
+
+    @FXML
+    private void handleProfile() {
+        try {
+            String info = Files.readString(Paths.get("info.txt"));
+            String token = info.split(",")[0];
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8081/auth/me")).header("Authorization", "Bearer " + token).GET().build();
+
+            client.sendAsync(request, HttpResponse.BodyHandlers.ofString()).thenApply(HttpResponse::body).thenAccept(response -> {
+                Platform.runLater(() -> openProfileWindow(response));
+            }).exceptionally(e -> {
+                e.printStackTrace();
+                return null;
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openProfileWindow(String userInfo) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/profile.fxml"));
+            Parent root = loader.load();
+            ProfileController controller = loader.getController();
+            controller.setUserInfo(userInfo);
+
+            Stage stage = new Stage();
+            stage.setTitle("Perfil");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
