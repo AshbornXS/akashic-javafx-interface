@@ -6,8 +6,10 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.registry.akashic.akashicjavafx.controller.AkashicController;
+import org.registry.akashic.akashicjavafx.response.ApiResponse;
+import org.registry.akashic.akashicjavafx.response.Book;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -18,7 +20,7 @@ import java.util.List;
 public class AkashicApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/book_list.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/book_list.fxml"));
         Parent root = loader.load();
         AkashicController controller = loader.getController();
 

@@ -1,4 +1,4 @@
-package org.registry.akashic.akashicjavafx;
+package org.registry.akashic.akashicjavafx.response;
 
 public class Book {
     private int id;

@@ -1,4 +1,4 @@
-package org.registry.akashic.akashicjavafx;
+package org.registry.akashic.akashicjavafx.response;
 
 import java.util.List;
 

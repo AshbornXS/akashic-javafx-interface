@@ -1,14 +1,11 @@
-// LoginController.java
-package org.registry.akashic.akashicjavafx;
+package org.registry.akashic.akashicjavafx.controller;
 
-import com.google.gson.Gson;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URI;
@@ -60,8 +57,7 @@ public class LoginController {
                         notifyMainController();
                     });
                 })
-                .exceptionally(e -> {
-                    e.printStackTrace();
+                .exceptionally(_ -> {
                     Platform.runLater(() -> {
                         Alert alert = new Alert(AlertType.ERROR);
                         alert.setTitle("Login");
@@ -99,7 +95,7 @@ public class LoginController {
 
     public void goToRegister() {
         Stage stage = (Stage) usernameField.getScene().getWindow();
-        mainController.openWindow("/Cadastro.fxml", "Cadastro", mainController);
+        mainController.openWindow("/fxml/register.fxml", "Cadastro", mainController);
         stage.close();
     }
 }

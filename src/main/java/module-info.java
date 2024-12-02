@@ -6,4 +6,8 @@ module org.registry.akashic.akashicjavafx {
 
     opens org.registry.akashic.akashicjavafx to javafx.fxml, com.google.gson;
     exports org.registry.akashic.akashicjavafx;
+    exports org.registry.akashic.akashicjavafx.controller;
+    opens org.registry.akashic.akashicjavafx.controller to com.google.gson, javafx.fxml;
+    exports org.registry.akashic.akashicjavafx.response;
+    opens org.registry.akashic.akashicjavafx.response to com.google.gson, javafx.fxml;
 }

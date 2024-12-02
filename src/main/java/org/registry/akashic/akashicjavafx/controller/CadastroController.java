@@ -1,4 +1,4 @@
-package org.registry.akashic.akashicjavafx;
+package org.registry.akashic.akashicjavafx.controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -6,7 +6,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URI;
@@ -67,15 +66,18 @@ public class CadastroController {
     }
 
     private void notifyMainController() {
+        if (mainController != null) {
+            mainController.setLoggedIn(true);
+        } else {
+            System.err.println("Main controller is null");
+        }
         Stage stage = (Stage) emailField.getScene().getWindow();
-        AkashicController mainController = (AkashicController) stage.getOwner().getUserData();
-        mainController.setLoggedIn(true);
         stage.close();
     }
 
     public void goToLogin() {
         Stage stage = (Stage) emailField.getScene().getWindow();
-        mainController.openWindow("/Login.fxml", "Login", mainController);
+        mainController.openWindow("/fxml/login.fxml", "Login", mainController);
         stage.close();
     }
 }

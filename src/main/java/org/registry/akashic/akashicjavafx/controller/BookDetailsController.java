@@ -1,4 +1,4 @@
-package org.registry.akashic.akashicjavafx;
+package org.registry.akashic.akashicjavafx.controller;
 
 import com.google.gson.Gson;
 import javafx.application.Platform;
@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.registry.akashic.akashicjavafx.response.Book;
 
 import java.io.ByteArrayInputStream;
 import java.net.URI;

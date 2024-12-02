@@ -1,5 +1,5 @@
 // AkashicController.java
-package org.registry.akashic.akashicjavafx;
+package org.registry.akashic.akashicjavafx.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +15,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.registry.akashic.akashicjavafx.response.Book;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -99,7 +100,7 @@ public class AkashicController {
 
     private void openBookDetails(int bookId) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/book_details.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/book_details.fxml"));
             Parent root = loader.load();
             BookDetailsController controller = loader.getController();
             controller.loadBookDetails(bookId);
@@ -120,12 +121,12 @@ public class AkashicController {
 
     @FXML
     private void handleLogin() {
-        openWindow("/Login.fxml", "Login", this);
+        openWindow("/fxml/login.fxml", "Login", this);
     }
 
     @FXML
     private void handleRegister() {
-        openWindow("/Cadastro.fxml", "Cadastro", this);
+        openWindow("/fxml/register.fxml", "Cadastro", this);
     }
 
     @FXML
@@ -170,10 +171,10 @@ public class AkashicController {
             stage.setScene(new Scene(root));
 
             // Passar a referência do AkashicController para o LoginController
-            if (fxmlPath.equals("/Login.fxml")) {
+            if (fxmlPath.equals("/fxml/login.fxml")) {
                 LoginController loginController = loader.getController();
                 loginController.setMainController(mainController);
-            } else if (fxmlPath.equals("/Cadastro.fxml")) {
+            } else if (fxmlPath.equals("/fxml/register.fxml")) {
                 CadastroController cadastroController = loader.getController();
                 cadastroController.setMainController(mainController);
             }
