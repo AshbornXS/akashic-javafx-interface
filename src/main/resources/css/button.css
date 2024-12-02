@@ -1,0 +1,11 @@
+.button {
+    -fx-background-color: #5332077c;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5px;
+}
+
+.button:hover {
+    -fx-font-style: italic;
+    -fx-background-color: #6e4028;
+}

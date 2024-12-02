@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.Cursor?>
+<ScrollPane fx:id="bookScrollPane" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.registry.akashic.akashicjavafx.AkashicController"
+            stylesheets="@css/button.css">
+    <Button fx:id="loginButton" layoutX="159.0" layoutY="377.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" styleClass="marrom" text="Entrar" textAlignment="CENTER" textFill="WHITE" onAction="#handleLogin">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Button fx:id="registerButton" layoutX="159.0" layoutY="407.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" styleClass="marrom" text="Registrar" textAlignment="CENTER" textFill="WHITE" onAction="#handleRegister">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Button fx:id="logoutButton" layoutX="159.0" layoutY="437.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" styleClass="marrom" text="Logout" textAlignment="CENTER" textFill="WHITE" onAction="#handleLogout">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <FlowPane fx:id="bookFlowPane"/>
+</ScrollPane>

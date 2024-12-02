@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.registry.akashic.akashicjavafx.BookDetailsController" spacing="10" alignment="CENTER">
+    <ImageView fx:id="bookImage" fitHeight="300" fitWidth="200" preserveRatio="true"/>
+    <Label fx:id="bookTitle" style="-fx-font-size: 20px;"/>
+    <Label fx:id="bookAuthor" style="-fx-font-size: 16px;"/>
+    <Label fx:id="bookDescription" wrapText="true" maxWidth="580"/>
+    <Label fx:id="bookTags" wrapText="true"/>
+</VBox>
