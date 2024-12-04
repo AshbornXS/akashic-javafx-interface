@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0"
+            prefWidth="1220.0" style="-fx-background-color: #e3e9f7;" stylesheets="@../css/button.css"
+            xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.registry.akashic.akashicjavafx.controller.AdminController">
+   <Pane layoutX="163.0" layoutY="216.0" prefHeight="376.0" prefWidth="894.0"
+         style="-fx-background-color: #5332077c; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #5332077c; -fx-border-width: 2px; -fx-border-style: solid;"/>
+   <Pane layoutX="195.0" layoutY="182.0" prefHeight="443.0" prefWidth="830.0"
+         style="-fx-background-color: white; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #5332077c; -fx-border-width: 2px; -fx-border-style: solid;">
+      <Text fx:id="deleteTitle" layoutX="58.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Título:"
+            wrappingWidth="52.72003173828125">
+         <font>
+            <Font name="Roboto Regular" size="17.0"/>
+         </font>
+      </Text>
+      <TextField fx:id="deleteTitleText" accessibleRole="TEXT" disable="true" layoutX="56.0" layoutY="102.0"
+                 prefHeight="27.0" prefWidth="734.0" promptText="Título do Livro"
+                 style="-fx-font-size: 12px; -fx-background-color: white; -fx-font-family: grey; -fx-border-color: grey; -fx-border-width: 1px; -fx-border-radius: 2px;"/>
+      <Text fx:id="deleteAuthor" layoutX="58.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autor:"
+            wrappingWidth="46.720062255859375">
+         <font>
+            <Font name="Roboto Regular" size="17.0"/>
+         </font>
+      </Text>
+      <TextField fx:id="deleteAuthorText" accessibleRole="TEXT" disable="true" layoutX="53.0" layoutY="163.0"
+                 prefHeight="27.0" prefWidth="734.0" promptText="Autor do Livro"
+                 style="-fx-font-size: 12px; -fx-background-color: white; -fx-font-family: grey; -fx-border-color: grey; -fx-border-width: 1px; -fx-border-radius: 2px;"/>
+      <Text fx:id="deleteDesc" layoutX="58.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0"
+            text="Descrição:" wrappingWidth="93.44012451171875">
+         <font>
+            <Font name="Roboto Regular" size="17.0"/>
+         </font>
+      </Text>
+      <TextArea fx:id="deleteDescText" accessibleRole="TEXT" disable="true" layoutX="56.0" layoutY="226.0"
+                prefHeight="74.0" prefWidth="734.0" promptText="Descrição do Livro"
+                style="-fx-font-size: 12; -fx-background-color: white; -fx-font-family: grey; -fx-border-color: grey; -fx-border-width: 1px; -fx-border-radius: 2px;"
+                wrapText="true"/>
+      <Text layoutX="58.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:"
+            wrappingWidth="52.72003173828125">
+         <font>
+            <Font name="Roboto Regular" size="17.0"/>
+         </font>
+      </Text>
+      <TextField fx:id="deleteID" layoutX="56.0" layoutY="42.0" prefHeight="27.0" prefWidth="734.0"
+                 promptText="ID do Livro" onAction="#fetchBookDetailsForDeletion"
+                 style="-fx-font-size: 12px; -fx-background-color: white; -fx-font-family: grey; -fx-border-color: grey; -fx-border-width: 1px; -fx-border-radius: 2px;"/>
+      <Button fx:id="deleteBook" onAction="#deleteBook" layoutX="58.0" layoutY="372.0" mnemonicParsing="false" prefHeight="38.0"
+              prefWidth="140.0" stylesheets="@../css/voltar.css" text="Apagar Livro">
+         <font>
+            <Font size="38.0"/>
+         </font>
+      </Button>
+   </Pane>
+   <Pane prefHeight="129.0" prefWidth="1220.0"
+         style="-fx-background-color: #5332077c; -fx-border-color: #5332077c; -fx-border-width: 0px 0px 2px 0px;">
+      <Group layoutX="61.0" layoutY="12.0">
+         <Label prefHeight="117.0" prefWidth="97.0" text="界" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font name="Roboto Regular" size="96.0"/>
+            </font>
+         </Label>
+         <Label alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="99.0" layoutY="37.0" prefHeight="31.0"
+                prefWidth="137.0" text="AKASHIC" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font name="Roboto Regular" size="33.0"/>
+            </font>
+         </Label>
+         <Label alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="99.0" layoutY="67.0" prefHeight="17.0"
+                prefWidth="137.0" text="BIBLIOTECA" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font name="Roboto Regular" size="10.0"/>
+            </font>
+         </Label>
+      </Group>
+      <Label alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="447.0" layoutY="40.0" prefHeight="49.0"
+             prefWidth="327.0" text="GERENCIAMENTO" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Roboto Regular" size="40.0"/>
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="573.0" layoutY="80.0" prefHeight="19.0"
+             prefWidth="69.0" text="DELETAR" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Roboto Regular" size="13.0"/>
+         </font>
+      </Label>
+   </Pane>
+</AnchorPane>

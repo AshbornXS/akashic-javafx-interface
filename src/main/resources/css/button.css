@@ -6,6 +6,5 @@
 }
 
 .button:hover {
-    -fx-font-style: italic;
     -fx-background-color: #6e4028;
 }

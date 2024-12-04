@@ -2,7 +2,7 @@ package org.registry.akashic.akashicjavafx.response;
 
 import java.util.List;
 
-public class ApiResponse {
+public class APIResponseBody {
     private List<Book> content;
     private int totalPages;
     private int totalElements;

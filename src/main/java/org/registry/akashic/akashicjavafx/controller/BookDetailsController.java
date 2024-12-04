@@ -17,6 +17,8 @@ import java.util.Base64;
 
 public class BookDetailsController {
     @FXML
+    public Label bookID;
+    @FXML
     private ImageView bookImage;
     @FXML
     private Label bookTitle;
@@ -24,15 +26,13 @@ public class BookDetailsController {
     private Label bookAuthor;
     @FXML
     private Label bookDescription;
-    @FXML
-    private Label bookTags;
 
     public void setBookDetails(Book book) {
         Platform.runLater(() -> {
             bookTitle.setText(book.getTitle());
             bookAuthor.setText(book.getAuthor());
             bookDescription.setText(book.getDescription());
-            bookTags.setText(book.getTags());
+            bookID.setText("ID: " + book.getId());
 
             if (book.getImageData() != null && !book.getImageData().isEmpty()) {
                 byte[] imageBytes = Base64.getDecoder().decode(book.getImageData());
@@ -45,7 +45,7 @@ public class BookDetailsController {
     public void loadBookDetails(int bookId) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8081/books/search?id=" + bookId))
+                .uri(URI.create("http://localhost:8081/books/" + bookId))
                 .build();
 
         client.sendAsync(request, HttpResponse.BodyHandlers.ofString())

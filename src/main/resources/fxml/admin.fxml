@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0"
+            prefWidth="1220.0" style="-fx-background-color: #e3e9f7;" stylesheets="@../css/button.css"
+            xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.registry.akashic.akashicjavafx.controller.AdminController">
+   <Pane layoutX="362.0" layoutY="248.0" prefHeight="246.0" prefWidth="498.0"
+         style="-fx-background-color: #5332077c; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #5332077c; -fx-border-width: 2px; -fx-border-style: solid;"/>
+   <Pane layoutX="384.0" layoutY="221.0" prefHeight="299.0" prefWidth="453.0"
+         style="-fx-background-color: white; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #5332077c; -fx-border-width: 2px; -fx-border-style: solid;">
+      <Text layoutX="119.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O que deseja fazer?"
+            wrappingWidth="214.63671875">
+         <font>
+            <Font size="24.0"/>
+         </font>
+      </Text>
+      <Button fx:id="add" layoutX="179.0" layoutY="92.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0"
+              stylesheets="@../css/button.css" text="Adicionar" onAction="#handleAdd">
+         <font>
+            <Font size="15.0"/>
+         </font>
+      </Button>
+      <Button fx:id="update" layoutX="179.0" layoutY="133.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0"
+              stylesheets="@../css/button.css" text="Alterar" onAction="#handleUpdate">
+         <font>
+            <Font size="15.0"/>
+         </font>
+      </Button>
+      <Button fx:id="delete" layoutX="179.0" layoutY="174.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0"
+              stylesheets="@../css/button.css" text="Deletar" onAction="#handleDelete">
+         <font>
+            <Font size="15.0"/>
+         </font>
+      </Button>
+   </Pane>
+   <Pane prefHeight="129.0" prefWidth="1220.0"
+         style="-fx-background-color: #5332077c; -fx-border-color: #5332077c; -fx-border-width: 0px 0px 2px 0px;">
+      <Group layoutX="61.0" layoutY="12.0">
+         <Label prefHeight="117.0" prefWidth="97.0" text="界" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font name="Roboto Regular" size="96.0"/>
+            </font>
+         </Label>
+         <Label alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="99.0" layoutY="37.0" prefHeight="31.0"
+                prefWidth="137.0" text="AKASHIC" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font name="Roboto Regular" size="33.0"/>
+            </font>
+         </Label>
+         <Label alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="99.0" layoutY="67.0" prefHeight="17.0"
+                prefWidth="137.0" text="BIBLIOTECA" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font name="Roboto Regular" size="10.0"/>
+            </font>
+         </Label>
+      </Group>
+      <Label alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="431.0" layoutY="40.0" prefHeight="49.0"
+             prefWidth="359.0" text="GERENCIAMENTO" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Roboto Regular" size="40.0"/>
+         </font>
+      </Label>
+   </Pane>
+</AnchorPane>

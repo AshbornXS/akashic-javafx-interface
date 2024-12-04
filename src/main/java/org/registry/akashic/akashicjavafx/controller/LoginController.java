@@ -22,9 +22,9 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    private AkashicController mainController;
+    private HomeController mainController;
 
-    public void setMainController(AkashicController mainController) {
+    public void setMainController(HomeController mainController) {
         this.mainController = mainController;
     }
 
@@ -45,7 +45,6 @@ public class LoginController {
         client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
                 .thenAccept(response -> {
-                    System.out.println(response);
                     String token = parseToken(response);
                     String role = parseRole(response);
                     saveTokenAndRole(token, role);
@@ -79,7 +78,7 @@ public class LoginController {
     private String parseRole(String response) {
         // Split the response by comma and return the third part as the role
         String[] parts = response.split(",");
-        return parts[2].trim();
+        return parts[1].trim();
     }
 
     private void saveTokenAndRole(String token, String role) {
